@@ -4,7 +4,7 @@
 
 ### SBT settings
 
-    libraryDependencies += "org.cvogt" %% "scalacheck-extensions" % "0.1"
+    libraryDependencies += "org.cvogt" %% "scalacheck-extensions" % "0.2"
 
 ### Fully automatic tree / class hierarchy generators 
 

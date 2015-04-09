@@ -85,10 +85,12 @@ class GenTreeMacros(val c: reflect.macros.blackbox.Context){
 
       val arb = TermName(c.freshName("arb"))
 
+      assert(gens.size >= 1)
+      val treeGen = if(gens.size > 1) q"$Gen.oneOf(..$gens)" else gens.head
       // using lzy to allow circular recursion
       q"""{
         /** implicit to automatically wire recursive datastructure */
-        implicit def $arb: ${Arbitrary(T)} = $Arbitrary($Gen.lzy($Gen.oneOf(..$gens)))
+        implicit def $arb: ${Arbitrary(T)} = $Arbitrary($Gen.lzy($treeGen))
         $arb.arbitrary
       }
       """

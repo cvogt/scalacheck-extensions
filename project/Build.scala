@@ -9,7 +9,7 @@ object MyBuild extends Build{
   lazy val aRootProject = Project(id = projectName, base = file("."),
     settings = sonatypeSettings ++ Seq(
       name := projectName,
-      version := "0.1",
+      version := "0.2",
       scalaVersion := "2.11.5",
       description := "Extensions for Scalacheck",
       libraryDependencies ++= Seq(
